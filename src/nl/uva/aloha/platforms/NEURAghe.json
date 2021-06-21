@@ -1,0 +1,121 @@
+{
+  "name": "ZynqPS",
+  "version": 0.1,
+  "peak performance": 180.92,
+  "peak_power": 10.0,
+  "global_memory_size": 1024,
+  "kernel_memory_size": 768, 
+  "core_types": [
+    {
+      "name": "HWCE", 
+      "id" : 1,
+      "type" : "HWCE",
+      "local_memory_size" : 1.2,
+      "max_frequency" : 200.0,
+      "max_power" : 10.0,
+      "performance_scale":1000000,
+      "supported_operator": [
+       { "name":"CONV",
+          "activation_width":16,
+          "data_width":16,
+          "performance":160,
+          "energy": 10.0
+       },
+       { "name":"CONV_POOL",
+          "activation_width":16,
+          "data_width":16,
+          "performance":160,
+          "energy": 10.0
+       },
+       { "name":"CONV_RELU",
+          "activation_width":16,
+          "data_width":16,
+          "performance":160,
+          "energy": 10.0
+       }
+      ]
+    },
+    
+    {
+    "name": "ARM", 
+    "type": "ARM",
+    "id" : 0,
+    "local_memory_size" : 768,
+    "max_frequency" : 800.0,
+    "max_power" : 10.0,
+    "performance_scale":10000,
+    "gating_available" : "no",
+    "supported_operator":[
+       { "name":"CONV",
+          "activation_width":16,
+          "data_width":16,
+          "performance":1,
+          "energy": 10.0
+ 
+       },
+       { "name":"POOL",
+         "activation_width":16,
+         "data_width":16,
+         "performance":1,
+         "energy": 10.0
+       },
+       { "name":"RELU",
+          "activation_width":16,
+          "data_width":16,
+          "energy": 10.0
+       },
+       { "name":"FC",
+          "activation_width":16,
+          "data_width":16,
+          "performance":1,
+          "energy": 10.0
+       }
+      ]
+   }],
+
+  "cores": [
+   {
+    "name": "ARM0", 
+    "id" : 0,
+    "type" : "ARM"
+   },
+   {
+    "name": "ARM1", 
+    "id" : 1,
+    "type" : "ARM"
+   },
+   {
+    "name": "HWCE", 
+    "id" : 2,
+    "type" : "HWCE"
+  }
+
+],
+  "connections": [
+    {
+      "name": "ARM1toARM0through_MEM",
+      "id" : 0,
+      "bandwidth" : 4
+    },
+    {
+      "name": "ARM0toARM1through_MEM",
+      "id" : 1,
+      "bandwidth" : 4
+    },
+    {
+      "name": "MEMtoHWCE_weights",
+      "id" : 1,
+      "bandwidth" : 0.8
+    },
+    {
+      "name": "MEMtoHWCE_activations",
+      "id" : 1,
+      "bandwidth" : 0.8
+    },
+    {
+      "name": "HWCEtomem_output",
+      "id" : 1,
+      "bandwidth" : 0.8
+    }
+  ]
+}

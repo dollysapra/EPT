@@ -1,0 +1,193 @@
+{
+  "name": "JetsonTX2",
+  "version": 0.1,
+  "peak performance": 667,
+  "peak_power": 15.0,
+  "global_memory_size": 1024,
+  "kernel_memory_size": 768, 
+  "core_types": [
+    {
+      "name": "GPU", 
+      "id" : 2,
+      "type" : "GPU",
+      "local_memory_size" : 1.2,
+      "max_frequency" : 200.0,
+      "max_power" : 10.0,
+      "performance_scale":10000000000,
+      "supported_operator":[
+       { "name":"CONV",
+         "performance":41,
+         "energy": 5.9
+       },
+       { "name":"POOL",
+         "performance":33,
+         "energy": 6.0
+       },
+       { "name":"RELU",
+         "performance":18
+       },
+       { "name":"FC",
+         "performance":1141,
+         "energy": 1.5
+       },
+       { "name":"CONCAT",
+         "performance":0,
+         "energy": 0
+       },
+       { "name":"ADD",
+         "performance":0,
+         "energy": 0
+       },
+       { "name":"LRN",
+         "performance":7,
+         "energy": 4.0
+       },
+       { "name":"BN",
+         "performance": 32,
+         "energy": 2.2
+       },
+       { "name":"SOFTMAX",
+         "performance":18
+       }
+      ]
+  },
+ {
+      "name": "ARMlarge", 
+      "type" : "ARM",
+      "subtype" : "large",
+      "id" : 0,
+      "local_memory_size" : 768,
+      "max_frequency" : 800.0,
+      "max_power" : 10.0,
+      "gating_available" : "no",
+      "supported_operator":[
+       { "name":"CONV",
+         "performance":1
+       },
+
+       { "name":"POOL",
+         "performance":1
+       },
+       { "name":"RELU",
+         "performance":1
+       },
+       { "name":"FC",
+         "performance":1
+       }
+      ]
+  },
+
+    {
+      "name": "ARMsmall", 
+      "id" : 1,
+      "type" : "ARM",
+      "subtype" : "small",
+      "local_memory_size" : 768,
+      "max_frequency" : 800.0,
+      "max_power" : 10.0,
+      "gating_available" : "no",
+      "supported_operator":[
+       { "name":"CONV",
+         "performance":1
+       },
+
+       { "name":"LRN",
+         "performance":33
+       },
+
+
+       { "name":"POOL",
+         "performance":33
+       },
+
+       { "name":"RELU",
+         "performance":18
+       },
+       { "name":"FC",
+         "performance":1
+       }
+      ]
+  }
+
+],
+
+
+  "cores": [
+   {
+    "name": "ARM0", 
+    "id" : 0,
+    "type" : "ARM",
+    "subtype" : "large"
+   },
+
+   {
+    "name": "ARM1", 
+    "id" : 1,
+    "type" : "ARM",
+    "subtype" : "large"
+   },
+
+   {
+    "name": "ARM2", 
+    "id" : 2,
+    "type" : "ARM",
+    "subtype" : "large"
+   },
+
+   {
+    "name": "ARM3", 
+    "id" : 3,
+    "type" : "ARM",
+    "subtype" : "large"
+   },
+
+   {
+    "name": "ARM4", 
+    "id" : 1,
+    "type" : "ARM",
+    "subtype" : "small"
+   },
+
+   {
+    "name": "ARM5", 
+    "id" : 1,
+    "type" : "ARM",
+    "subtype" : "small"
+   },
+
+   {
+    "name": "GPU", 
+    "id" : 6,
+    "host" : "ARM0",
+    "cores" : 256, 
+    "type" : "GPU"
+  }],
+
+  "connections": [
+    {
+      "name": "ARM1toARM0through_MEM",
+      "id" : 0,
+      "bandwidth" : 4
+    },
+    {
+      "name": "ARM0toARM1through_MEM",
+      "id" : 1,
+      "bandwidth" : 4
+    },
+    {
+      "name": "MEMtoHWCE_weights",
+      "id" : 1,
+      "bandwidth" : 0.8
+    },
+    {
+      "name": "MEMtoHWCE_activations",
+      "id" : 1,
+      "bandwidth" : 0.8
+    },
+    {
+      "name": "HWCEtomem_output",
+      "id" : 1,
+      "bandwidth" : 0.8
+    }
+  ]
+}
