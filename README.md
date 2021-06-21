@@ -42,5 +42,5 @@ https://surfdrive.surf.nl/files/index.php/s/0kUqKrucvMlzb9F
 *****************************************************************************************
 An earlier version of this code is also available at https://gitlab.com/aloha.eu/ga_aloha.
 This is the original code for ALOHA project (https://www.aloha-h2020.eu/) 
-It uses satellite tools published by other ALOHA partners for evaluation (training/security/hardware/etc.)
+This version uses satellite tools published by other ALOHA partners for evaluation (training/security/hardware/etc.)
 *****************************************************************************************
