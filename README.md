@@ -11,20 +11,27 @@ Jar files: (included in "lib" folder)
 4. onnx.jar (For onnx file creation and modification - based on protobuf)
 5. espamjun21.jar published by Svetlana Minakova (https://gitlab.com/aloha.eu/alohaeval)
 
-Training for CIFAR-10 and PAMAP2 earlier versions were done using Caffe2 (in pytorch)
-Training for VOC and CIFAR-10 resnet models is done using Keras/Tensoflow v2.0.0
+Training for CIFAR-10 and PAMAP2 earlier versions were done using Caffe2 (in pytorch).
+
+Training for VOC and CIFAR-10 resnet models is done using Keras/Tensoflow v2.0.0.
+
 For continued training during the evolutionary algorithm, it is important that weights can be correctly identified to be passed on from one generation to the next. 
+
 getInitializerMap() in ONNXAlteration file was based on caffe2 earlier and support has been added for Keras2Onnx v1.7.0 and onnx2keras v0.0.23. 
+
 To use different converter (or different version), this function can be updated.  
 
 
 *****************************************************************************************
 
 To use EPT, set all parameters in /nl/uva/aloha/helpers/Config.Java
+
 /nl/uva/aloha/genetic/DNNCodec.Java --> design the codec/genotype you need to use here. 
+
 /nl/uva/aloha/problems/ --> design your problem here. Example problems are available. This step is only needed for multi-objective search.
 
 For example of single-objective search (CIFAR-10), see /nl/uva/aloha/GAMain.Java
+
 For example of multi-objective search (PAMAP2), see /nl/uva/aloha/MultiObjGAMain.Java
 *****************************************************************************************
 
@@ -41,6 +48,6 @@ https://surfdrive.surf.nl/files/index.php/s/0kUqKrucvMlzb9F
 
 *****************************************************************************************
 An earlier version of this code is also available at https://gitlab.com/aloha.eu/ga_aloha.
-This is the original code for ALOHA project (https://www.aloha-h2020.eu/) 
-This version uses satellite tools published by other ALOHA partners for evaluation (training/security/hardware/etc.)
+This is the original code for ALOHA project (https://www.aloha-h2020.eu/).
+Aloha version uses satellite tools published by other ALOHA partners for evaluation (training/security/hardware/etc.)
 *****************************************************************************************
