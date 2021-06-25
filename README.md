@@ -17,9 +17,8 @@ Training for VOC and CIFAR-10 resnet models is done using Keras/Tensoflow v2.0.0
 
 For continued training during the evolutionary algorithm, it is important that weights can be correctly identified to be passed on from one generation to the next. 
 
-getInitializerMap() in ONNXAlteration file was based on caffe2 earlier and support has been added for Keras2Onnx v1.7.0 and onnx2keras v0.0.23. 
-
-To use different converter (or different version), this function can be updated.  
+getInitializerMap() in ONNXAlteration.Java file was based on caffe2 earlier and support has been added for Keras2Onnx v1.7.0 and onnx2keras v0.0.23. 
+To use different converter (or different version), this function has to be updated.  
 
 
 *****************************************************************************************
