@@ -27,8 +27,12 @@ To use EPT, set all parameters in /nl/uva/aloha/helpers/Config.Java
 
 /nl/uva/aloha/genetic/DNNCodec.Java --> design the codec/genotype you need to use here. 
 
-/nl/uva/aloha/problems/ --> design your problem here. Example problems are available. This step is only needed for multi-objective search.
 
+This Genetic Algorithm is based on Jenetics library (https://jenetics.io/) . Please read Jenetics documentation to use our code. 
+
+A "Problem" encapsulates the genotype, its translation and evaluation metrics. 
+
+/nl/uva/aloha/problems/ --> design your problem here. Example problems are available. This step can be ignored for single-objective search.
 For example of single-objective search (CIFAR-10), see /nl/uva/aloha/GAMain.Java
 
 For example of multi-objective search (PAMAP2), see /nl/uva/aloha/MultiObjGAMain.Java
